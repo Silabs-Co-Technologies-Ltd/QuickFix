@@ -1,0 +1,39 @@
+{
+  "name": "QuickFix Nearby",
+  "short_name": "QuickFix",
+  "description": "A professional marketplace for verified repair, home, and field services across Nigeria.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Request a Service",
+      "short_name": "Request",
+      "description": "Open the database intake section for customer service requests.",
+      "url": "/index.html#database",
+      "icons": [
+        {
+          "src": "/logo.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
