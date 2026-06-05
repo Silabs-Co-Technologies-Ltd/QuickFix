@@ -3,239 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickFix Nearby - Nationwide On-Demand Service Marketplace</title>
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="QuickFix Nearby is a professional marketplace that connects customers with verified service providers across Nigeria.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="QuickFix">
+    <title>QuickFix Nearby | Professional Service Marketplace</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandBlue: '#1E40AF',
-                        brandGreen: '#10B981',
+                        brandNavy: '#0f172a',
+                        brandBlue: '#1d4ed8',
+                        brandGreen: '#059669',
+                        brandGold: '#f59e0b'
+                    },
+                    boxShadow: {
+                        soft: '0 24px 70px rgba(15, 23, 42, 0.12)'
                     }
                 }
             }
         }
     </script>
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #1E40AF 0%, #10B981 100%);
+        html { scroll-behavior: smooth; }
+        .hero-panel {
+            background:
+                radial-gradient(circle at top left, rgba(29, 78, 216, 0.22), transparent 35%),
+                linear-gradient(135deg, #0f172a 0%, #1e3a8a 58%, #047857 100%);
         }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(16px);
+        }
+        .install-toast[hidden] { display: none; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="bg-brandBlue text-white p-2 rounded-lg">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <span class="text-2xl font-bold text-brandBlue">QuickFix <span class="text-brandGreen">Nearby</span></span>
-            </div>
-            <nav class="hidden md:flex space-x-8 font-medium">
-                <a href="#features" class="hover:text-brandBlue transition">Features</a>
-                <a href="#services" class="hover:text-brandBlue transition">Services</a>
-                <a href="#security" class="hover:text-brandBlue transition">Security</a>
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <a href="#top" class="flex items-center gap-3" aria-label="QuickFix Nearby home">
+                <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-xl bg-brandNavy shadow-lg"><img src="/logo.png" alt="" class="h-full w-full object-cover" onerror="this.style.display='none'; this.parentElement.textContent='QF'; this.parentElement.classList.add('text-lg', 'font-black', 'text-white');"></span>
+                <span>
+                    <span class="block text-xl font-black tracking-tight text-brandNavy">QuickFix Nearby</span>
+                    <span class="block text-xs font-semibold uppercase tracking-[0.28em] text-brandGreen">Verified Services</span>
+                </span>
+            </a>
+            <nav class="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex" aria-label="Primary navigation">
+                <a class="hover:text-brandBlue" href="#solutions">Solutions</a>
+                <a class="hover:text-brandBlue" href="#services">Services</a>
+                <a class="hover:text-brandBlue" href="#trust">Trust</a>
+                <a class="hover:text-brandBlue" href="#database">Netlify DB</a>
             </nav>
-            <button class="bg-brandBlue text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-800 transition">Get Started</button>
+            <div class="flex items-center gap-3">
+                <button id="headerInstallButton" class="hidden rounded-full border border-brandBlue px-4 py-2 text-sm font-bold text-brandBlue transition hover:bg-blue-50">Install App</button>
+                <a href="#database" class="rounded-full bg-brandNavy px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-slate-800">Request Access</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Nationwide On-Demand Service Marketplace for Nigeria 🇳🇬</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
-                Connecting you to nearby verified artisans and service providers in real time.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                <a href="#" class="bg-white text-brandBlue px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition shadow-lg">Download Customer App</a>
-                <a href="#" class="bg-brandGreen text-white border-2 border-white border-opacity-20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition shadow-lg">Join as a Professional</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                To become Nigeria’s most trusted digital marketplace for local repair and home services.
-            </p>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Core Features</h2>
-                <p class="text-gray-600">Built for efficiency, trust, and ease of use.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Customer Features -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-6 text-brandBlue flex items-center">
-                        <i class="fas fa-user-circle mr-3"></i> For Customers
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGreen mt-1 mr-3"></i> GPS auto-location detection</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGreen mt-1 mr-3"></i> Search nearby service providers</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGreen mt-1 mr-3"></i> Real-time worker availability</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGreen mt-1 mr-3"></i> Live map tracking & smart matching</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandGreen mt-1 mr-3"></i> Secure payments & Digital receipts</li>
-                    </ul>
+    <main id="top">
+        <section class="hero-panel text-white">
+            <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+                <div class="flex flex-col justify-center">
+                    <p class="mb-5 inline-flex w-fit items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-50">Nationwide operations platform for Nigeria 🇳🇬</p>
+                    <h1 class="max-w-4xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">A business-ready marketplace for verified repair, home, and field services.</h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200">QuickFix Nearby helps customers book trusted professionals, while operations teams manage intake, verification, dispatch, payments, and service quality from one installable web app.</p>
+                    <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+                        <button id="heroInstallButton" class="rounded-xl bg-white px-7 py-4 text-base font-black text-brandNavy shadow-soft transition hover:-translate-y-0.5 hover:bg-slate-100">Install QuickFix PWA</button>
+                        <a href="#solutions" class="rounded-xl border border-white/25 px-7 py-4 text-center text-base font-black text-white transition hover:bg-white/10">View Business Capabilities</a>
+                    </div>
+                    <dl class="mt-10 grid max-w-2xl grid-cols-3 gap-4 text-center sm:text-left">
+                        <div>
+                            <dt class="text-3xl font-black">24/7</dt>
+                            <dd class="text-sm text-slate-300">Service intake</dd>
+                        </div>
+                        <div>
+                            <dt class="text-3xl font-black">3-step</dt>
+                            <dd class="text-sm text-slate-300">Provider vetting</dd>
+                        </div>
+                        <div>
+                            <dt class="text-3xl font-black">PWA</dt>
+                            <dd class="text-sm text-slate-300">Chrome install ready</dd>
+                        </div>
+                    </dl>
                 </div>
-
-                <!-- Worker Features -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 class="text-2xl font-bold mb-6 text-brandGreen flex items-center">
-                        <i class="fas fa-tools mr-3"></i> For Professionals
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandBlue mt-1 mr-3"></i> Online / Offline availability toggle</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandBlue mt-1 mr-3"></i> Instant job request notifications</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandBlue mt-1 mr-3"></i> GPS navigation to customers</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandBlue mt-1 mr-3"></i> Detailed earnings dashboard</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-brandBlue mt-1 mr-3"></i> Identity verification & Skill registration</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Service Categories</h2>
-                <p class="text-gray-600">Whatever you need, we have a verified professional nearby.</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">🔧</div>
-                    <h4 class="font-bold">Plumbing</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">⚡</div>
-                    <h4 class="font-bold">Electrical</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">📱</div>
-                    <h4 class="font-bold">Phone Repair</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">🚗</div>
-                    <h4 class="font-bold">Mechanic</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">👞</div>
-                    <h4 class="font-bold">Shoe Repair</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">🛞</div>
-                    <h4 class="font-bold">Vulcanizer</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">👕</div>
-                    <h4 class="font-bold">Dry Cleaning</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">💈</div>
-                    <h4 class="font-bold">Barber</h4>
-                </div>
-                <div class="p-6 bg-gray-50 rounded-xl text-center hover:shadow-md transition cursor-pointer">
-                    <div class="text-3xl mb-3">🪚</div>
-                    <h4 class="font-bold">Carpenter</h4>
-                </div>
-                <div class="p-6 bg-brandBlue text-white rounded-xl text-center flex items-center justify-center font-bold">
-                    And more...
+                <div class="glass-card rounded-3xl p-6 shadow-soft lg:p-8">
+                    <div class="rounded-2xl bg-white p-5 text-slate-900 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                            <div>
+                                <p class="text-sm font-bold text-brandGreen">Live Dispatch Overview</p>
+                                <h2 class="text-2xl font-black">Operations Console</h2>
+                            </div>
+                            <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-700">Online</span>
+                        </div>
+                        <div class="mt-5 space-y-4">
+                            <article class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div>
+                                        <p class="text-sm font-black text-slate-500">Priority Request</p>
+                                        <h3 class="mt-1 text-lg font-black">Lekki electrical fault</h3>
+                                        <p class="mt-1 text-sm text-slate-600">Matched to two verified electricians within 4 km.</p>
+                                    </div>
+                                    <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-700">12 min</span>
+                                </div>
+                            </article>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="rounded-2xl bg-blue-50 p-4">
+                                    <p class="text-sm font-bold text-blue-700">Active Jobs</p>
+                                    <p class="mt-2 text-3xl font-black text-brandNavy">128</p>
+                                </div>
+                                <div class="rounded-2xl bg-emerald-50 p-4">
+                                    <p class="text-sm font-bold text-emerald-700">Verified Pros</p>
+                                    <p class="mt-2 text-3xl font-black text-brandNavy">842</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl bg-brandNavy p-4 text-white">
+                                <p class="text-sm font-bold text-slate-300">Next rollout milestone</p>
+                                <p class="mt-1 font-black">Connect Netlify Database and begin storing leads, providers, job requests, and audit events.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Security & Payments -->
-    <section id="security" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+        <section id="solutions" class="py-20">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <p class="text-sm font-black uppercase tracking-[0.28em] text-brandGreen">Business capabilities</p>
+                    <h2 class="mt-3 text-3xl font-black tracking-tight text-brandNavy sm:text-4xl">Designed for customers, professionals, and marketplace administrators.</h2>
+                </div>
+                <div class="mt-12 grid gap-6 md:grid-cols-3">
+                    <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                        <div class="grid h-12 w-12 place-items-center rounded-2xl bg-blue-100 text-2xl">📍</div>
+                        <h3 class="mt-5 text-xl font-black">Customer booking</h3>
+                        <p class="mt-3 leading-7 text-slate-600">Capture location, service category, urgency, notes, contact details, and preferred schedule through a professional request flow.</p>
+                    </article>
+                    <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                        <div class="grid h-12 w-12 place-items-center rounded-2xl bg-emerald-100 text-2xl">🧰</div>
+                        <h3 class="mt-5 text-xl font-black">Provider operations</h3>
+                        <p class="mt-3 leading-7 text-slate-600">Support verified profiles, online availability, territory coverage, ratings, earnings, identity checks, and job acceptance.</p>
+                    </article>
+                    <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                        <div class="grid h-12 w-12 place-items-center rounded-2xl bg-amber-100 text-2xl">📊</div>
+                        <h3 class="mt-5 text-xl font-black">Admin controls</h3>
+                        <p class="mt-3 leading-7 text-slate-600">Prepare for lead review, provider approval, incident tracking, payment reconciliation, and database-backed reporting.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-white py-20">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <p class="text-sm font-black uppercase tracking-[0.28em] text-brandBlue">Service coverage</p>
+                    <h2 class="mt-3 text-3xl font-black text-brandNavy sm:text-4xl">High-demand categories ready for dispatch.</h2>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center font-black">⚡<span class="mt-3 block">Electrician</span></div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center font-black">🚰<span class="mt-3 block">Plumber</span></div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center font-black">🚗<span class="mt-3 block">Mechanic</span></div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center font-black">🧱<span class="mt-3 block">Builder</span></div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center font-black">💈<span class="mt-3 block">Barber</span></div>
+                    <div class="rounded-2xl border border-slate-200 bg-brandNavy p-5 text-center font-black text-white">+<span class="mt-3 block">More</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trust" class="py-20">
+            <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
                 <div>
-                    <h2 class="text-3xl font-bold mb-8">🔐 Built for Trust & Security</h2>
-                    <div class="space-y-6">
-                        <div class="flex">
-                            <div class="bg-blue-100 text-brandBlue p-3 rounded-lg h-fit mr-4">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Worker Verification</h4>
-                                <p class="text-gray-600">Government ID upload, face verification, and manual approval process.</p>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <div class="bg-blue-100 text-brandBlue p-3 rounded-lg h-fit mr-4">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Secure Payments</h4>
-                                <p class="text-gray-600">Escrow payment system with secure integrations via Paystack and Flutterwave.</p>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <div class="bg-blue-100 text-brandBlue p-3 rounded-lg h-fit mr-4">
-                                <i class="fas fa-user-shield"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">Data Protection</h4>
-                                <p class="text-gray-600">Encrypted communication and role-based access control for your privacy.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-sm font-black uppercase tracking-[0.28em] text-brandGreen">Trust framework</p>
+                    <h2 class="mt-3 text-3xl font-black text-brandNavy sm:text-4xl">A polished experience with security and accountability built in.</h2>
+                    <p class="mt-5 leading-8 text-slate-600">The marketplace messaging now speaks to enterprise readiness: customer assurance, professional standards, payments, privacy, and reliable operations.</p>
                 </div>
-                <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100 text-center">
-                    <h3 class="text-2xl font-bold mb-6">Payment Methods</h3>
-                    <div class="flex flex-wrap justify-center gap-4 mb-8">
-                        <span class="px-4 py-2 bg-gray-100 rounded-lg font-medium">Debit/Credit Cards</span>
-                        <span class="px-4 py-2 bg-gray-100 rounded-lg font-medium">Bank Transfer</span>
-                        <span class="px-4 py-2 bg-gray-100 rounded-lg font-medium">Wallet System</span>
-                    </div>
-                    <p class="text-gray-500 italic">Recommended Providers:</p>
-                    <div class="flex justify-center space-x-8 mt-4">
-                        <span class="font-bold text-xl text-blue-600">Paystack</span>
-                        <span class="font-bold text-xl text-orange-500">Flutterwave</span>
-                    </div>
+                <div class="grid gap-4">
+                    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><strong>Identity verification:</strong> government ID, profile photo, service credentials, and manual approval checkpoints.</div>
+                    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><strong>Payment readiness:</strong> wallet, card, transfer, escrow, receipts, and reconciliation planning.</div>
+                    <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><strong>Auditability:</strong> database records for requests, status history, user actions, provider approvals, and support notes.</div>
                 </div>
+            </div>
+        </section>
+
+        <section id="database" class="bg-brandNavy py-20 text-white">
+            <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+                <div>
+                    <p class="text-sm font-black uppercase tracking-[0.28em] text-brandGold">Netlify database prompt</p>
+                    <h2 class="mt-3 text-3xl font-black sm:text-4xl">Use this intake prompt to plan your Netlify Database schema.</h2>
+                    <p class="mt-5 leading-8 text-slate-300">Submit the form on Netlify to capture early requests, then copy the schema prompt into your database setup workflow to create the core marketplace tables.</p>
+                    <form name="quickfix-database-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-8 rounded-3xl bg-white p-6 text-slate-900 shadow-soft">
+                        <input type="hidden" name="form-name" value="quickfix-database-intake">
+                        <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
+                        <label class="block text-sm font-black text-slate-700" for="requestType">What should the database store first?</label>
+                        <select id="requestType" name="request_type" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3" required>
+                            <option value="customer_requests">Customer service requests</option>
+                            <option value="provider_onboarding">Provider onboarding</option>
+                            <option value="payments">Payments and receipts</option>
+                            <option value="admin_audit">Admin audit logs</option>
+                        </select>
+                        <label class="mt-4 block text-sm font-black text-slate-700" for="databaseNotes">Database notes</label>
+                        <textarea id="databaseNotes" name="database_notes" rows="4" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3" placeholder="Example: store customer name, phone, location, category, urgency, status, assigned provider, and timestamps." required></textarea>
+                        <button class="mt-5 w-full rounded-xl bg-brandGreen px-5 py-3 font-black text-white transition hover:bg-emerald-700" type="submit">Send Database Request</button>
+                    </form>
+                </div>
+                <div class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-soft">
+                    <div class="flex items-center justify-between gap-4">
+                        <h3 class="text-xl font-black">Copy-ready prompt</h3>
+                        <button id="copyPromptButton" class="rounded-full bg-white px-4 py-2 text-sm font-black text-brandNavy transition hover:bg-slate-100">Copy Prompt</button>
+                    </div>
+                    <textarea id="netlifyPrompt" class="mt-5 h-[30rem] w-full rounded-2xl border border-white/10 bg-slate-950 p-5 font-mono text-sm leading-7 text-emerald-100" readonly>Create a Netlify Database for QuickFix Nearby, a Nigeria-focused service marketplace PWA. Design relational tables for: users, customer_profiles, provider_profiles, service_categories, service_requests, provider_assignments, payments, reviews, support_tickets, verification_documents, notifications, and audit_events. Include primary keys, foreign keys, created_at and updated_at timestamps, status enums, indexes for location/category/status lookups, and sample seed records for electrician, plumber, mechanic, barber, dry cleaning, carpenter, and vulcanizer services. Add role-based access assumptions for customer, provider, and admin workflows, and make the schema ready for Netlify-hosted forms that submit customer service requests and provider onboarding leads.</textarea>
+                    <p id="copyStatus" class="mt-3 text-sm font-semibold text-emerald-200" role="status" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="installToast" class="install-toast fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-5 text-slate-900 shadow-soft" hidden>
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <p class="text-sm font-black uppercase tracking-[0.2em] text-brandGreen">Install available</p>
+                <h2 class="mt-1 text-xl font-black text-brandNavy">Add QuickFix Nearby to Chrome</h2>
+                <p class="mt-1 text-sm text-slate-600">Install the progressive web app for a full-screen, app-like experience.</p>
+            </div>
+            <div class="flex gap-3">
+                <button id="dismissInstallButton" class="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-black text-slate-700">Not now</button>
+                <button id="toastInstallButton" class="rounded-full bg-brandBlue px-5 py-2.5 text-sm font-black text-white">Install</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center border-b border-gray-800 pb-8 mb-8">
-                <div class="flex items-center space-x-2 mb-6 md:mb-0">
-                    <div class="bg-brandBlue text-white p-2 rounded-lg">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <span class="text-2xl font-bold">QuickFix <span class="text-brandGreen">Nearby</span></span>
-                </div>
-                <div class="flex space-x-6 text-gray-400">
-                    <a href="#" class="hover:text-white transition">About</a>
-                    <a href="#" class="hover:text-white transition">Privacy</a>
-                    <a href="#" class="hover:text-white transition">Terms</a>
-                    <a href="#" class="hover:text-white transition">Contact</a>
-                </div>
+    <footer class="bg-slate-950 py-10 text-white">
+        <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+            <div>
+                <p class="text-xl font-black">QuickFix Nearby</p>
+                <p class="mt-2 text-sm text-slate-400">Professional on-demand services marketplace for Nigeria.</p>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <div class="text-sm text-slate-400">
                 <p>&copy; 2026 QuickFix Nearby. Built for Nigeria 🇳🇬</p>
-                <p>Founder: <span class="text-gray-300">Nicazz Ishor</span></p>
+                <p class="mt-1">Founder: <span class="text-slate-200">Nicazz Ishor</span></p>
             </div>
         </div>
     </footer>
 
+    <script>
+        const installButtons = [
+            document.getElementById('headerInstallButton'),
+            document.getElementById('heroInstallButton'),
+            document.getElementById('toastInstallButton')
+        ];
+        const installToast = document.getElementById('installToast');
+        const dismissInstallButton = document.getElementById('dismissInstallButton');
+        let deferredInstallPrompt = null;
+
+        function setInstallButtonsVisible(isVisible) {
+            installButtons.forEach((button) => {
+                if (!button) return;
+                button.classList.toggle('hidden', !isVisible && button.id === 'headerInstallButton');
+                button.disabled = !isVisible;
+                button.setAttribute('aria-disabled', String(!isVisible));
+            });
+        }
+
+        window.addEventListener('beforeinstallprompt', (event) => {
+            event.preventDefault();
+            deferredInstallPrompt = event;
+            setInstallButtonsVisible(true);
+            installToast.hidden = localStorage.getItem('quickfix-install-dismissed') === 'true';
+        });
+
+        async function promptInstall() {
+            if (!deferredInstallPrompt) {
+                alert('Chrome will show the install prompt after this site is served over HTTPS or localhost and meets PWA install requirements.');
+                return;
+            }
+            deferredInstallPrompt.prompt();
+            await deferredInstallPrompt.userChoice;
+            deferredInstallPrompt = null;
+            installToast.hidden = true;
+            setInstallButtonsVisible(false);
+        }
+
+        installButtons.forEach((button) => button?.addEventListener('click', promptInstall));
+        dismissInstallButton?.addEventListener('click', () => {
+            localStorage.setItem('quickfix-install-dismissed', 'true');
+            installToast.hidden = true;
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch((error) => {
+                    console.warn('QuickFix service worker registration failed:', error);
+                });
+            });
+        }
+
+        document.getElementById('copyPromptButton')?.addEventListener('click', async () => {
+            const prompt = document.getElementById('netlifyPrompt');
+            const status = document.getElementById('copyStatus');
+            try {
+                await navigator.clipboard.writeText(prompt.value);
+                status.textContent = 'Prompt copied to clipboard.';
+            } catch (error) {
+                prompt.select();
+                document.execCommand('copy');
+                status.textContent = 'Prompt selected and copied.';
+            }
+        });
+    </script>
 </body>
 </html>
