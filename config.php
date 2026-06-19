@@ -50,7 +50,7 @@ return [
         'env' => APP_ENV,
         'debug' => APP_DEBUG,
         'name' => 'QuickFix Nearby',
-        'version' => '1.0.0',
+        'version' => '2.0.0',
         'url' => getenv('APP_URL') ?: 'http://localhost:8000',
     ],
     'database' => [

@@ -12,7 +12,7 @@ header('X-XSS-Protection: 1; mode=block');
 
 // Environment configuration
 define('APP_NAME', 'QuickFix Nearby');
-define('APP_VERSION', '1.0.0');
+define('APP_VERSION', '2.0.0');
 define('APP_ENV', getenv('APP_ENV') ?: 'production');
 
 // Set error reporting based on environment

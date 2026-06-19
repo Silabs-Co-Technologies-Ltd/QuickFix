@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quickfix-nearby-v1';
+const CACHE_NAME = 'quickfix-nearby-v2';
 const APP_SHELL = [
   '/',
   '/index.html',

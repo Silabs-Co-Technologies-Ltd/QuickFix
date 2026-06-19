@@ -25,8 +25,8 @@
     {
       "name": "Request a Service",
       "short_name": "Request",
-      "description": "Open the database intake section for customer service requests.",
-      "url": "/index.html#database",
+      "description": "Open the QuickFix 2.0 service request intake section.",
+      "url": "/index.html#contact",
       "icons": [
         {
           "src": "/logo.png",
