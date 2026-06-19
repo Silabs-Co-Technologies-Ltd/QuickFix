@@ -11,11 +11,11 @@ define('APP_DEBUG', getenv('APP_DEBUG') ?: true);
 
 // 2. Database Configuration
 // These values should be set in your environment variables for production
-define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_HOST', getenv('DB_HOST') ?: 'sql208.infinityfree.com');
 define('DB_PORT', getenv('DB_PORT') ?: '3306');
-define('DB_USER', getenv('DB_USER') ?: 'root');
-define('DB_PASS', getenv('DB_PASS') ?: '');
-define('DB_NAME', getenv('DB_NAME') ?: 'quickfix_db');
+define('DB_USER', getenv('DB_USER') ?: 'if0_42163414');
+define('DB_PASS', getenv('DB_PASS') ?: 'CocIU1p6sPZE7o');
+define('DB_NAME', getenv('DB_NAME') ?: 'if0_42163414_quickfix');
 define('DB_CHARSET', 'utf8mb4');
 
 // 3. Email Settings
