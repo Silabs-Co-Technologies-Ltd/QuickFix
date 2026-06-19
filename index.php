@@ -257,9 +257,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </nav>
             
             <div class="flex items-center gap-3">
-                <a href="#contact" class="rounded-full bg-deepBlue px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-darkBlue focus:outline-none focus:ring-2 focus:ring-brightGreen focus:ring-offset-2">
-                    Get Started
-                </a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="/dashboard.php" class="text-sm font-bold text-deepBlue hover:text-brightGreen transition">Dashboard</a>
+                    <a href="/logout.php" class="rounded-full bg-deepBlue px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-darkBlue focus:outline-none focus:ring-2 focus:ring-brightGreen focus:ring-offset-2">
+                        Sign Out
+                    </a>
+                <?php else: ?>
+                    <a href="/login.php" class="text-sm font-bold text-deepBlue hover:text-brightGreen transition">Sign In</a>
+                    <a href="/register.php" class="rounded-full bg-deepBlue px-5 py-2.5 text-sm font-bold text-white shadow-lg transition hover:bg-darkBlue focus:outline-none focus:ring-2 focus:ring-brightGreen focus:ring-offset-2">
+                        Join Now
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
