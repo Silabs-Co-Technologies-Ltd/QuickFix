@@ -16,6 +16,7 @@ QuickFix Nearby is built with a blue-green design system and provides:
 - **Backend**: PHP 7.4+ (Server-side rendering)
 - **Frontend**: HTML5, TailwindCSS, JavaScript
 - **Features**: PWA-ready, Mobile-optimized, Accessible (WCAG 2.1)
+- **Database**: MySQL/MariaDB schema included in `db.sql`
 
 ## Features
 
@@ -68,12 +69,17 @@ cd QuickFix
 
 2. Configure your web server to serve the directory
 
-3. Set environment variables
+3. Create the database and load the Version 2.0 schema
+```bash
+mysql -u <user> -p quickfix_db < db.sql
+```
+
+4. Set environment variables
 ```bash
 export APP_ENV=production
 ```
 
-4. Ensure `sessions` directory is writable for PHP sessions
+5. Ensure `sessions` directory is writable for PHP sessions
 
 ## Deployment
 
@@ -98,10 +104,10 @@ Visit `http://localhost:8000` in your browser.
    - XSS protection enabled
    - Clickjacking protection via X-Frame-Options
 
-3. **Database Integration** (Optional)
-   - Connect to Netlify Database or similar
-   - Implement persistent form storage
-   - Setup email notifications
+3. **Database Integration**
+   - Import `db.sql` into MySQL/MariaDB
+   - Configure `DB_HOST`, `DB_USER`, `DB_PASS`, and `DB_NAME`
+   - Use the included tables for users, customers, professionals, service requests, contact submissions, and remember tokens
 
 4. **Email Configuration**
    - Configure SMTP for form submissions
@@ -114,6 +120,7 @@ Visit `http://localhost:8000` in your browser.
 QuickFix/
 ├── index.php              # Main landing page (PHP)
 ├── index.html             # Static HTML version
+├── db.sql                 # Version 2.0 MySQL/MariaDB schema
 ├── manifest.webmanifest   # PWA manifest
 ├── sw.js                  # Service Worker
 ├── logo.png              # Brand logo
@@ -179,7 +186,7 @@ The contact form is configured for local testing. In production:
 
 ## Future Enhancements
 
-- [ ] Database integration (customer, provider, booking storage)
+- [x] Version 2.0 database schema for users, customers, providers, bookings, contacts, and remember tokens
 - [ ] User authentication system
 - [ ] Payment gateway integration
 - [ ] Real-time notifications
@@ -206,5 +213,5 @@ Built with ❤️ for Nigeria 🇳🇬
 ---
 
 **Last Updated**: June 2026
-**Version**: 1.0.0
+**Version**: 2.0.0
 **Status**: Production Ready

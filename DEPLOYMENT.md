@@ -202,48 +202,23 @@ volumes:
   db-data:
 ```
 
-## Database Schema (Optional)
+## Database Schema
 
-When ready to integrate a database, use this schema:
+QuickFix Nearby Version 2.0 ships with a dedicated database bootstrap file: `db.sql`. Import it into MySQL/MariaDB instead of copying schema snippets from this deployment guide.
 
-```sql
--- Customers table
-CREATE TABLE customers (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    phone VARCHAR(20),
-    location VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
--- Service requests table
-CREATE TABLE service_requests (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    customer_id INT NOT NULL,
-    service_type VARCHAR(100) NOT NULL,
-    description TEXT,
-    location VARCHAR(255),
-    urgency ENUM('low', 'medium', 'high') DEFAULT 'medium',
-    status ENUM('pending', 'assigned', 'in_progress', 'completed', 'cancelled') DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (customer_id) REFERENCES customers(id)
-);
-
--- Professionals table
-CREATE TABLE professionals (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    service_type VARCHAR(100) NOT NULL,
-    verified BOOLEAN DEFAULT FALSE,
-    rating DECIMAL(3, 2) DEFAULT 0,
-    total_jobs INT DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+```bash
+mysql -u quickfix_user -p quickfix_db < db.sql
 ```
+
+The schema includes:
+
+- `users` for email/password, roles, and Google OAuth account data
+- `customers` for requester profiles
+- `service_categories` seeded with the launch service catalog
+- `professionals` for provider profiles, verification, availability, ratings, and coverage
+- `service_requests` for customer jobs and assignment status
+- `contact_submissions` for landing-page leads
+- `remember_tokens` for persistent login support
 
 ## Monitoring & Logging
 
