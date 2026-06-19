@@ -1,11 +1,11 @@
 -- QuickFix Nearby Version 2.0 Database Schema
 -- MySQL 8.0+ / MariaDB 10.5+
--- Import with: mysql -u <user> -p quickfix_db < db.sql
+-- Import with: mysql -u <user> -p if0_42163414_quickfix < db.sql
 
 SET NAMES utf8mb4;
 SET time_zone = '+01:00';
 
-CREATE DATABASE IF NOT EXISTS `quickfix_db`
+CREATE DATABASE IF NOT EXISTS `if0_42163414_quickfix`
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
